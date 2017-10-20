@@ -1,0 +1,1 @@
+This repository contains my submissions for the course "Machine Learning, Stanford University". These solutions are not meant to be copied and must just act as small pointers to doubts that anyone has with regard to that course. Please do not copy these solutions.
