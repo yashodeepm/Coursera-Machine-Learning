@@ -23,11 +23,28 @@ sigma = 0.3;
 %        mean(double(predictions ~= yval))
 %
 
+minimum1 = intmax();
 
-
-
-
-
+%model = svmTrain(X, y, 0.1, @(x1,x2) gaussianKernel(x1,x2,0.03));
+%predictions = svmPredict(model, Xval);
+%yval;
+%predictions-yval;
+%mean(predictions-yval)
+i=0;
+results = zeros(64,3);
+length(results)
+for Cnow = [0.01,0.03,0.1,0.3,1,3,10,30]
+  for sigmanow = [0.01,0.03,0.1,0.3,1,3,10,30]
+    model = svmTrain(X, y, Cnow, @(x1,x2) gaussianKernel(x1,x2,sigmanow));
+    predictions = svmPredict(model, Xval);
+    row = [mean(double(predictions ~= yval)),Cnow,sigmanow];
+    results(i+1,:) = row;
+    i=i+1
+  endfor
+endfor
+results = sortrows(results,1);
+C = results(1,2)
+sigma = results(1,3)
 
 % =========================================================================
 

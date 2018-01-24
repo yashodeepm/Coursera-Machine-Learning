@@ -17,7 +17,8 @@ sim = 0;
 %
 
 
-
+sim = e^(-1*sum((x1-x2).^2)/(2*(sigma^2)));
+return;
 
 
 
